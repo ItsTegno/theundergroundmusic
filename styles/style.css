@@ -78,6 +78,7 @@ h1 {
     margin: 0;
     animation: intro 2s;
     font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 @keyframes intro {

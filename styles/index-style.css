@@ -55,7 +55,11 @@
     padding-right: 10%;
     padding-top: 70px;
     padding-bottom: 70px;
-    background: #6a7b95;
+    background-image: linear-gradient(#6a7b95, #6a7b95), url("../media/Color Background.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    image-rendering: pixelated;
     margin: 0px;
     position: relative;
 }
