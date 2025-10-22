@@ -77,20 +77,42 @@ window.addEventListener("resize", () => {
 
 function animate() {
   requestAnimationFrame(animate);
+
+  // actualizar la cámara en cada frame según la posición del container en la pantalla
+  updateCameraFromContainer();
+
   renderer.render(scene, camera);
 }
 animate();
 
-camera.position.y = 0.75 + window.scrollY * 0.002 * -1;
-  camera.position.z = 4 - Math.pow(camera.position.y, 2) * 0.175;
-  camera.lookAt(0, 0, 0);
+// Nueva función: posiciona la cámara según la posición relativa del container en el viewport
+function updateCameraFromContainer() {
+  if (!container) return;
+  const rect = container.getBoundingClientRect();
+  const viewportCenterY = window.innerHeight / 2;
+  const containerCenterY = rect.top + rect.height / 2;
+  const viewportCenterX = window.innerWidth / 2;
+  const containerCenterX = rect.left + rect.width / 2;
 
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  const scrollFactor = scrollY * 0.002;
+  // Normalizado en rango aprox -1 .. 1 (positivo cuando el container está por encima del centro)
+  const normY = (viewportCenterY - containerCenterY) / (window.innerHeight / 2);
+  const normX = (viewportCenterX - containerCenterX) / (window.innerWidth / 2);
 
-  // La cámara sube y baja manteniendo el ángulo hacia abajo
-  camera.position.y = 0.75 + scrollFactor * -1;
-  camera.position.z = 4 - Math.pow(camera.position.y, 2) * 0.175;
+  // Ajusta baseY / maxOffset para el efecto deseado
+  const baseY = 0;
+  const baseX = 0;
+  const maxOffsetY = -1.0;
+  const maxOffsetX = 1.0;
+
+  const clampedY = Math.max(-1, Math.min(1, normY));
+  camera.position.y = baseY + clampedY * maxOffsetY;
+
+  const clampedX = Math.max(-1, Math.min(1, normX));
+  camera.position.x = baseX + clampedX * maxOffsetX;
+
+  camera.position.z = 4 - (Math.pow(camera.position.y, 2) + Math.pow(camera.position.x, 2)) * 0.175;
   camera.lookAt(0, 0, 0);
-});
+}
+
+// Llamada inicial para fijar la cámara al cargar
+updateCameraFromContainer();
