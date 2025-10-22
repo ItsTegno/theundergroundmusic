@@ -13,7 +13,7 @@
     background-color: #000000;
 }
 .section-2{
-    background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../media/superHUMAN.gif");
+    background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("media/superHUMAN.gif");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -22,7 +22,7 @@
     background-color: #ffffff;
 }
 .section-4{
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../media/sun.gif");
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("media/sun.gif");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -46,12 +46,7 @@
 }
 
 
-.section_1_image{
-    border-radius: 15px;
-    align-self: center;
-}
-
-.section_3_image{
+.section_1_image, .section_3_image{
     border-radius: 15px;
     align-self: center;
 }

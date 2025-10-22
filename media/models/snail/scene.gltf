@@ -39,9 +39,12 @@
 		{
 			"doubleSided":true,
 			"name":"Snail",
+			"normalTexture":{
+				"index":0
+			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":0
+					"index":1
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.2590909004211426
@@ -50,9 +53,12 @@
 		{
 			"doubleSided":true,
 			"name":"Shell",
+			"normalTexture":{
+				"index":2
+			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":1
+					"index":3
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.3500000238418579
@@ -99,13 +105,31 @@
 		{
 			"sampler":0,
 			"source":1
+		},
+		{
+			"sampler":0,
+			"source":2
+		},
+		{
+			"sampler":0,
+			"source":3
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/png",
+			"name":"Snail_normal",
+			"uri":"textures/Snail_normal.png"
+		},
+		{
+			"mimeType":"image/png",
 			"name":"Untitled",
 			"uri":"textures/Untitled.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Shell_normal",
+			"uri":"textures/Shell_normal.png"
 		},
 		{
 			"mimeType":"image/png",
