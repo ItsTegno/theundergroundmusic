@@ -112,6 +112,16 @@ function updateCameraFromContainer() {
 
   camera.position.z = 4 - (Math.pow(camera.position.y, 2) + Math.pow(camera.position.x, 2)) * 0.175;
   camera.lookAt(0, 0, 0);
+
+  // Actualizar posición de la luz para que siga a la cámara
+  // Offset relativo a la posición de la cámara
+  const lightOffsetX = 5;
+  const lightOffsetY = 10;
+  const lightOffsetZ = 5;
+  
+  topLight.position.x = camera.position.x + lightOffsetX;
+  topLight.position.y = camera.position.y + lightOffsetY;
+  topLight.position.z = camera.position.z + lightOffsetZ;
 }
 
 // Llamada inicial para fijar la cámara al cargar
