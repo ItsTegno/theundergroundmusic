@@ -134,8 +134,8 @@ footer {
     #container3D {
         width: 50vw;
         height: 50vw;
-        top: calc(110vh - (50vw / 2));
-        right: 50px;
+        right: 5vw;
+        bottom: calc(5vw - 50vw / 2);
     }
 }
 @media (min-width: 768px) {
@@ -152,7 +152,7 @@ footer {
     #container3D {
         width: 25vw;
         height: 25vw;
-        top: calc(100vh - (25vw / 2));
-        right: 100px;
+        bottom: calc(-10vw - 25vw / 2);
+        right: 10vw;
     }
 }
