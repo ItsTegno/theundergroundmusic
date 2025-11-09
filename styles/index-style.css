@@ -1,9 +1,5 @@
 .sine{
     display: flex;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 60px;
-    padding-bottom: 60px;
     background: #000000;
     margin: 0px;
 }
@@ -51,10 +47,6 @@
 
 .spotify{
     display: flex;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 70px;
-    padding-bottom: 70px;
     background-color: #6a7b95;
     margin: 0px;
     position: relative;
@@ -78,6 +70,7 @@
     .sine{
         flex-direction: column;
         align-items: center;
+        padding: 10%;
     }
     .sine-text{
         padding: 0px 0px 10% 0px;
@@ -88,6 +81,7 @@
     .spotify{
         flex-direction: column;
         align-items: center;
+        padding: calc(10% + 10px) 10% calc(10% + 10px) 10%;
     }
     .spotify-text{
         padding: 10% 0px 0px 0px;
@@ -97,6 +91,7 @@
     .sine{
         flex-direction: row;
         align-items: center;
+        padding: 5% 10% 5% 10%;
     }
     .sine-text{
         padding: 0px 10% 0px 0px;
@@ -107,6 +102,7 @@
     .spotify{
         flex-direction: row;
         align-items: center;
+        padding: calc(5% + 10px) 10% calc(5% + 10px) 10%;
     }
     .spotify-text{
         padding: 0px 0px 0px 10%;

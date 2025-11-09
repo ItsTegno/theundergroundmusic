@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
-html{
+html {
     overflow-x: hidden;
 }
 
@@ -89,7 +89,7 @@ footer {
     filter: invert(1) brightness(2);
 }
 
-.background{
+.background {
     position: fixed;
     top: 0;
     left: 0;
@@ -98,23 +98,6 @@ footer {
     object-fit: cover;
     z-index: -1;
     will-change: transform, filter;
-}
-
-#container3D {
-    position: absolute;
-    z-index: 1;
-    pointer-events: none;
-    animation: introCaracol 2s;
-}
-@keyframes introCaracol {
-    0% { 
-        transform: translate(35px, -25px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0, 0);
-        opacity: 1;
-    }
 }
 
 @media (max-width: 768px) {
@@ -131,12 +114,6 @@ footer {
         margin: 0 40px 0 0;
         padding: 30px 0 30px 0;
     }
-    #container3D {
-        width: 50vw;
-        height: 50vw;
-        right: 5vw;
-        bottom: calc(5vw - 50vw / 2);
-    }
 }
 @media (min-width: 768px) {
     h1 {
@@ -148,11 +125,5 @@ footer {
     }
     .navigationItem {
         margin: 0 30px 0 30px;
-    }
-    #container3D {
-        width: 25vw;
-        height: 25vw;
-        bottom: calc(-10vw - 25vw / 2);
-        right: 10vw;
     }
 }

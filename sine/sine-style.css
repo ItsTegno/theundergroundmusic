@@ -1,11 +1,10 @@
 .section-1, .section-3{
     display: flex;
-    padding: 60px 10% 60px 10%;
+    padding: 10%;
     margin: 0px;
 }
 
 .section-2, .section-4{
-    padding: 70px 10% 70px 10%;
     margin: 0px;
 }
 
@@ -55,6 +54,10 @@
     .section-1, .section-3{
         flex-direction: column;
         align-items: center;
+        padding: 10%;
+    }
+    .section-2, .section-4{
+        padding: calc(10% + 10px) 10% calc(10% + 10px) 10%;
     }
     .section_1_image{
         width: 100%;
@@ -70,6 +73,10 @@
 @media (min-width: 768px) {
     .section-1, .section-3{
         flex-direction: row;
+        padding: 5% 10% 5% 10%;
+    }
+    .section-2, .section-4{
+        padding: calc(5% + 10px) 10% calc(5% + 10px) 10%;
     }
     .section_1_image{
         width: 40%;
