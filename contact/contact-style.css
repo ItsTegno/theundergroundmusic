@@ -10,15 +10,17 @@
     flex-direction: column;
     background-color: #6a7b95;
     padding: 20px;
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 45px 45px;
     box-sizing: border-box;
+    corner-shape: squircle;
     box-shadow: 0px 15px 10px #1e315a80;
 }
 
 .form-section input,
 .form-section textarea {
-    padding: 16px;
-    border-radius: 10px;
+    padding: 15px;
+    border-radius: 25px;
+    corner-shape: squircle;
     border: none;
     background: #1e315a80;
     color: #fff;
@@ -47,11 +49,12 @@ input[type=number] {
 .submit-button {
     background: #ffffff;
     color: #6a7b95;
-    padding: 14px;
+    padding: 15px;
     font-size: 1rem;
     font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 25px;
+    corner-shape: squircle;
     cursor: pointer;
     transition: 0.3s;
     font-family: 'JetBrains Mono', Icons;

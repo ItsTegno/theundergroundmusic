@@ -46,7 +46,8 @@
 
 
 .section_1_image, .section_3_image{
-    border-radius: 15px;
+    border-radius: 35px;
+    corner-shape: squircle;
     align-self: center;
 }
 
