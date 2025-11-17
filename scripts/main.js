@@ -1,36 +1,77 @@
-let ticking = false;
+////////////////////
+//     Scroll     //
+////////////////////
 
-window.addEventListener('scroll', function () {
-    if (!ticking) {
-        window.requestAnimationFrame(function () {
-            const scrollY = window.scrollY;
-            const maxScroll = window.innerHeight * 1; // Ajusta según lo que necesites
+const parallaxFactor = -0.5
 
-            // Progreso de 0 a 1
-            const progress = Math.min(scrollY / maxScroll, 1);
+window.addEventListener('scroll', function ()
+{
+    window.requestAnimationFrame(function ()
+    {
+        const scrollY = window.scrollY;
+        const maxScroll = window.innerHeight;
 
-            // Desenfoque dinámico del fondo
-            const bg = document.getElementById('background_blur');
-            if (bg) {
-                const blurAmount = progress * 10; // 0px a 10px de blur
-                bg.style.filter = `blur(${blurAmount}px)`;
+        ////////////////////////
+        //     Background     //
+        ////////////////////////
 
-                const parallax = scrollY * -0.5; // Ajusta el factor
-                bg.style.transform = `translateY(${parallax}px)`;
+        const backgroundProgress = Math.min(scrollY / maxScroll, 1);
+
+        const bg = document.getElementById('background');
+        if (bg)
+        {
+            //Blur
+            const blurAmount = backgroundProgress * 10; // 0px a 10px de blur
+            bg.style.filter = `blur(${blurAmount}px)`;
+
+            //Parallax
+            const parallax = scrollY * parallaxFactor; // Ajusta el factor
+            bg.style.transform = `translateY(${parallax}px)`;
+        }
+
+        ///////////////////
+        //     Title     //
+        ///////////////////
+
+        const titleProgress = Math.min(scrollY / maxScroll * 2, 1);
+        const inverseTitleProgress = lerp(1, 0, titleProgress);
+
+        const title = document.getElementById('title');
+        if (title)
+        {
+            const ancho = title.offsetWidth;
+
+            if (window.innerWidth >= 768) {
+                title.style.transform = `translateX(calc((50vw - ${ancho / 2}px) * ${ease(titleProgress)}))`;
+                //title.style.paddingLeft = `calc(3vw * ${ease(inverseTitleProgress)})`;
+            } else {
+                title.style.transform = `translateX(0)`;
             }
-
-            ticking = false;
-        });
-
-        ticking = true;
-    }
+        }
+    });
 });
 
-const textarea = document.querySelector('textarea');
+function lerp(a, b, t)
+{
+    return a + (b - a) * t;
+}
 
-textarea.addEventListener('input', () => {
-  textarea.style.height = 'auto'; // Resetea la altura
-  textarea.style.height = textarea.scrollHeight + 'px'; // Ajusta a su contenido
+function ease(t)
+{
+    return (t * t) * (3 - 2 * t);
+}
+
+////////////////////////////////////
+//     Adjust TextArea Height     //
+////////////////////////////////////
+const textArea = document.querySelector('textarea');
+textArea.style.height = 'auto'; // Resetea la altura
+textArea.style.height = textArea.scrollHeight + 'px';
+
+textArea.addEventListener('input', () =>
+{
+  textArea.style.height = 'auto'; // Resetea la altura
+  textArea.style.height = textArea.scrollHeight + 'px'; // Ajusta a su contenido
 });
 
 
