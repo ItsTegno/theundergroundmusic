@@ -1,28 +1,8 @@
-.sine{
-    display: flex;
-    background: #000000;
-    margin: 0px;
-}
-
-.sine-text{
-    color : #ffffff;
-}
-
-.sine-title{
-    font-size: clamp(0rem, 12vw, 5rem);
-    font-weight: bolder;
-    margin: 0;
-}
-.sine-subtitle{
-    font-size: clamp(0rem, 5vw, 2rem);
-    margin: 0;
-}
-
 .sine-buttons{
     display: flex;
-    flex-direction: column; /* Coloca los elementos uno encima del otro */
-    justify-content: center; /* Centra verticalmente */
-    align-items: center;     /* Centra horizontalmente */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .button{
@@ -37,74 +17,32 @@
     width: 100%;
     border-radius: 15px;
     transition: 0.2s cubic-bezier(0, 0.5, 0.5, 1);
-    box-shadow: 0px 10px 0px #ffffff;
 }
 
 .button:hover {
-    transform: translateY(10px);
-    box-shadow: 0px 0px #ffffff;
+    color : #000000;
+    background-color: #ffffff;
 }
 
-.spotify{
-    display: flex;
-    background-color: #6a7b95;
-    margin: 0px;
-    position: relative;
-}
-
-.spotify-text{
-    color : #ffffff;
-}
-
-.spotify-title{
-    font-size: clamp(0rem, 12vw, 5rem);
-    font-weight: bolder;
-    margin: 0;
-}
-.spotify-subtitle{
-    font-size: clamp(0rem, 5vw, 2rem);
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    .sine{
-        flex-direction: column;
-        align-items: center;
-        padding: 10%;
-    }
+@media (max-width: 968px) {
     .sine-text{
         padding: 0px 0px 10% 0px;
     }
     .sine-buttons{
         width: 100%;
     }
-    .spotify{
-        flex-direction: column;
-        align-items: center;
-        padding: calc(10% + 10px) 10% calc(10% + 10px) 10%;
-    }
     .spotify-text{
         padding: 10% 0px 0px 0px;
     }
 }
-@media (min-width: 768px) {
-    .sine{
-        flex-direction: row;
-        align-items: center;
-        padding: 5% 10% 5% 10%;
-    }
+@media (min-width: 968px) {
     .sine-text{
         padding: 0px 10% 0px 0px;
     }
-    .sine-buttons{ /* Coloca los elementos uno encima del otro */
+    .sine-buttons{
         width: 500px;
     }
-    .spotify{
-        flex-direction: row;
-        align-items: center;
-        padding: calc(5% + 10px) 10% calc(5% + 10px) 10%;
-    }
     .spotify-text{
-        padding: 0px 0px 0px 10%;
+        padding: 0px 0px 0px 30px;
     }
 }

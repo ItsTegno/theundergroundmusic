@@ -1,3 +1,39 @@
+let mouseX = 0;
+let mouseY = 0;
+
+window.addEventListener('pointermove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+////////////////////
+//     Easing     //
+////////////////////
+
+function lerp(a, b, t)
+{
+    return a + (b - a) * t;
+}
+
+function ease(t)
+{
+    return (t * t) * (3 - 2 * t);
+}
+
+function easeInOut(t) {
+    return t < 0.5
+        ? 2 * t * t
+        : 1 - Math.pow(-2 * t + 2, 2) / 2;
+}
+
+function easeOutExpo(t) {
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
+function easeInExpo(t) {
+    return t === 0 ? 0 : Math.pow(2, 10 * (t - 1));
+}
+
 ////////////////////
 //     Scroll     //
 ////////////////////
@@ -51,19 +87,96 @@ window.addEventListener('scroll', function ()
     });
 });
 
-function lerp(a, b, t)
-{
-    return a + (b - a) * t;
-}
+///////////////////
+//     Cards     //
+///////////////////
 
-function ease(t)
-{
-    return (t * t) * (3 - 2 * t);
-}
+const cardContainers = document.querySelectorAll('.card-container');
+
+cardContainers.forEach(cardContainer => {
+    const card = cardContainer.querySelector('.card');
+
+    let inTime = 0;
+    let x= 0;
+    let y = 0;
+    let centerX = 0;
+    let centerY = 0;
+    let hover = false;
+
+    cardContainer.addEventListener('mouseenter', () => {
+        hover = true;
+        EnterCard();
+    });
+    cardContainer.addEventListener('mouseleave', () => {
+        hover = false
+        ExitCard();
+    });
+
+    function EnterCard()
+    {
+        const rect = cardContainer.getBoundingClientRect();
+
+        x = mouseX - rect.left; // posición dentro del div
+        y = mouseY - rect.top;
+
+        centerX = rect.width / 2;
+        centerY = rect.height / 2;
+
+        const rotateX = -(y - centerY) / 250;
+        const rotateY = (x - centerX) / 250;
+
+        if(inTime < 1){
+            inTime += 0.05;
+        }
+        else{
+            inTime = 1;
+        }
+
+        currentRotateX = lerp(0, rotateX, easeOutExpo(inTime))
+        currentRotateY = lerp(0, rotateY, easeOutExpo(inTime))
+
+        card.style.transform = `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+
+        if (hover){
+            requestAnimationFrame(EnterCard);
+        }
+    }
+
+    function ExitCard()
+    {
+        const rect = cardContainer.getBoundingClientRect();
+
+        x = mouseX - rect.left; // posición dentro del div
+        y = mouseY - rect.top;
+
+        centerX = rect.width / 2;
+        centerY = rect.height / 2;
+
+        const rotateX = -(y - centerY) / 250;
+        const rotateY = (x - centerX) / 250;
+
+        if(inTime > 0){
+            inTime -= 0.05;
+        }
+        else{
+            inTime = 0;
+        }
+
+        currentRotateX = lerp(0, rotateX, easeInExpo(inTime))
+        currentRotateY = lerp(0, rotateY, easeInExpo(inTime))
+
+        card.style.transform = `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+
+        if(inTime > 0){
+            requestAnimationFrame(ExitCard);
+        }
+    }
+});
 
 ////////////////////////////////////
 //     Adjust TextArea Height     //
 ////////////////////////////////////
+
 const textArea = document.querySelector('textarea');
 textArea.style.height = 'auto'; // Resetea la altura
 textArea.style.height = textArea.scrollHeight + 'px';
@@ -74,7 +187,9 @@ textArea.addEventListener('input', () =>
   textArea.style.height = textArea.scrollHeight + 'px'; // Ajusta a su contenido
 });
 
-
+////////////////////////
+//     Form Logic     //
+////////////////////////
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contact-form");

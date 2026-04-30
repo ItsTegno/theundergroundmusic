@@ -1,23 +1,18 @@
 .section-1, .section-3{
     padding: 10%;
     margin: 0px;
+    background-color: #000000;
 }
 
 .section-2, .section-4{
     margin: 0px;
 }
 
-.section-1{
-    background-color: #000000;
-}
 .section-2{
     background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("media/superHUMAN.gif");
     background-size: cover;
     background-position: center;
     position: relative;
-}
-.section-3{
-    background-color: #ffffff;
 }
 .section-4{
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("media/sun.gif");
@@ -36,20 +31,20 @@
     margin: 0;
 }
 
-.text_1, .text_2, .text_4{
+.text{
     color : #ffffff;
-}
-.text_3{
-    color : #000000;
 }
 
 .section_1_image, .section_3_image{
     border-radius: 15px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .section-1, .section-3{
         align-items: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
         padding: 10%;
     }
     .section-2, .section-4{
@@ -66,12 +61,12 @@
         margin-bottom: 60px;
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 968px) {
     .section-1, .section-3{
-        padding: 5% 10% 5% 10%;
+        padding: 5% 20% 5% 20%;
     }
     .section-2, .section-4{
-        padding: calc(5% + 10px) 10% calc(5% + 10px) 10%;
+        padding: calc(5% + 10px) 20% calc(5% + 10px) 20%;
     }
     .section_1_image{
         width: 40%;

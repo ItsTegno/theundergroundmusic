@@ -6,6 +6,7 @@ html {
 
 body {
     font-family: 'JetBrains Mono', Icons;
+    color: white;
     margin: 0px;
     background-color: #000000;
     overflow-x: hidden;
@@ -13,17 +14,58 @@ body {
 
 header {
     height: 100vh;
-    background: linear-gradient(to bottom, transparent, #000000);
+    background: linear-gradient(to bottom, transparent, #0f0f0f);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+h1{
+    padding-bottom: 1vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    margin: 0;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    transition: 0.5s cubic-bezier(0, 0, 0.25, 1);
+    will-change: transform;
+}
+
+h2{
+    font-size: clamp(0rem, 6vw, 4.5rem);
+    font-weight: bolder;
+    margin: 0;
+}
+
+p{
+    font-size: clamp(0rem, 5vw, 1.6rem);
+    margin: 0;
+}
+small{
+    font-size: clamp(1rem, 6vw, 4.5rem);
+}
+
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #0f0f0f;
+}
+.content{
+    display: flex;
+}
+.content-panel{
+    display: flex;
+    background-color: #6a7b95;
+    box-shadow: 10px 10px 20px 0px #0c0c0c;
 }
 
 .navigation {
     display: flex;
     width: 100%;
     font-size: 150%;
-    background: linear-gradient(to top, transparent, #000000);
+    background: linear-gradient(to top, transparent, #0f0f0f);
 }
 
 .navigationItem {
@@ -37,28 +79,12 @@ header {
     transform: scale(1.1);
 }
 
-#title {
-    padding-bottom: 1vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    margin: 0;
-    color: #ffffff;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    transition: 0.5s cubic-bezier(0, 0, 0.25, 1);
-    will-change: transform;
-}
-
-.separator{
-    position: absolute;
-    left: 0;
-    width: 1920px;
-    height: 10px;
-    image-rendering: pixelated;
+.card-container{
+    perspective: 800px;
 }
 
 footer {
-    background: #000000;
+    background: #0f0f0f;
     color: #ffffff;
     text-align: center;
     padding: 10px 0;
@@ -83,8 +109,16 @@ footer {
     will-change: transform, filter;
 }
 
-@media (max-width: 768px) {
-    #title {
+@media (max-width: 968px) {
+    .content{
+        flex-direction: column;
+        padding: 10% 10%;
+    }
+    .content-panel{
+        flex-direction: column;
+        padding: 10% 10%;
+    }
+    h1{
         font-size: 14vw;
         align-self: center;
     }
@@ -99,8 +133,22 @@ footer {
         padding: 30px 0 30px 0;
     }
 }
-@media (min-width: 768px) {
-    #title {
+@media (min-width: 968px) {
+    .content{
+        flex-direction: row;
+        align-items: center;
+        padding: 60px 60px;
+        max-width: 848px;
+    }
+    .content-panel{
+        flex-direction: row;
+        align-items: center;
+        padding: 30px;
+        margin: 30px;
+        max-width: 848px;
+        border-radius: 30px;
+    }
+    h1{
         font-size: 8vw;
         align-self: flex-start;
     }

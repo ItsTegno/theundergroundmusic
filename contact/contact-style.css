@@ -1,8 +1,5 @@
 .form-section{
     display: flex;
-    margin: 0px;
-    background-color: #6a7b95;
-    position: relative;
 }
 
 #contact-form{
@@ -90,9 +87,9 @@ input[type=number] {
     margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .text{
-        padding-bottom: 60px;
+        padding-bottom: 10%;
         width: 100%;
     }
     #contact-form{
@@ -100,13 +97,13 @@ input[type=number] {
     }
     .form-section{
         flex-direction: column;
-        padding: calc(10% + 10px) 10% calc(10% + 10px) 10%;
+        padding: calc(10% + 10px) 10%;
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 968px) {
     .text{
-        padding-right: 10%;
         width: 50%;
+        padding-right: 60px;
     }
     #contact-form{
         width: 50%;
@@ -114,6 +111,7 @@ input[type=number] {
     .form-section{
         flex-direction: row;
         align-items: center;
-        padding: calc(5% + 10px) 10% calc(5% + 10px) 10%;
+        padding: calc(60px + 10px) 60px;
+        max-width: 648px;
     }
 }
