@@ -32,18 +32,15 @@ h1{
     will-change: transform;
 }
 
-h2{
+.title{
     font-size: clamp(0rem, 6vw, 4.5rem);
     font-weight: bolder;
     margin: 0;
 }
 
-p{
+.subtitle{
     font-size: clamp(0rem, 5vw, 1.6rem);
     margin: 0;
-}
-small{
-    font-size: clamp(1rem, 6vw, 4.5rem);
 }
 
 .container{
@@ -52,13 +49,24 @@ small{
     justify-content: center;
     background-color: #0f0f0f;
 }
+
+.card-container{
+    perspective: 800px;
+}
+
 .content{
     display: flex;
+    padding: 30px;
 }
+
+
 .content-panel{
     display: flex;
     background-color: #6a7b95;
-    box-shadow: 10px 10px 20px 0px #0c0c0c;
+    box-shadow: 10px 10px 20px 0 #0c0c0c;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 35px;
 }
 
 .navigation {
@@ -75,12 +83,9 @@ small{
     align-items: center;
     transition: .3s;
 }
+
 .navigationItem:hover {
     transform: scale(1.1);
-}
-
-.card-container{
-    perspective: 800px;
 }
 
 footer {
@@ -109,14 +114,14 @@ footer {
     will-change: transform, filter;
 }
 
+.card-image{
+    border-radius: 10px;
+    width: 100%;
+}
+
 @media (max-width: 968px) {
-    .content{
+    .content, .content-panel{
         flex-direction: column;
-        padding: 10% 10%;
-    }
-    .content-panel{
-        flex-direction: column;
-        padding: 10% 10%;
     }
     h1{
         font-size: 14vw;
@@ -134,19 +139,10 @@ footer {
     }
 }
 @media (min-width: 968px) {
-    .content{
+    .content, .content-panel{
         flex-direction: row;
         align-items: center;
-        padding: 60px 60px;
         max-width: 848px;
-    }
-    .content-panel{
-        flex-direction: row;
-        align-items: center;
-        padding: 30px;
-        margin: 30px;
-        max-width: 848px;
-        border-radius: 30px;
     }
     h1{
         font-size: 8vw;
