@@ -50,10 +50,6 @@ h1{
     background-color: #0f0f0f;
 }
 
-.card-container{
-    perspective: 800px;
-}
-
 .content{
     display: flex;
     padding: 30px;
@@ -114,7 +110,7 @@ footer {
     will-change: transform, filter;
 }
 
-.card-image{
+.image{
     border-radius: 10px;
     width: 100%;
 }
@@ -137,6 +133,9 @@ footer {
         margin: 0 40px 0 0;
         padding: 30px 0 30px 0;
     }
+    .margner{
+        margin-bottom: 30px;
+    }
 }
 @media (min-width: 968px) {
     .content, .content-panel{
@@ -154,5 +153,8 @@ footer {
     }
     .navigationItem {
         margin: 0 30px 0 30px;
+    }
+    .margner{
+        margin-right: 30px;
     }
 }

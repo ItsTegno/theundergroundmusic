@@ -1,19 +1,13 @@
-.form-section{
-    display: flex;
-}
-
 #contact-form{
     display: flex;
     flex-direction: column;
     background-color: #6a7b95;
     padding: 20px;
     border-radius: 0 0 35px 35px;
-    box-sizing: border-box;
     box-shadow: 0px 15px 10px #1e315a80;
 }
 
-.form-section input,
-.form-section textarea {
+input, textarea {
     padding: 15px;
     border-radius: 15px;
     border: none;
@@ -37,9 +31,9 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+/*input[type=number] {
   -moz-appearance: textfield;
-}
+}*/
 
 .submit-button {
     background: #ffffff;
@@ -81,37 +75,13 @@ input[type=number] {
     transform: translateY(0);
 }
 
-.text{
-    color : #ffffff;
-    font-size: clamp(0rem, 5vw, 2rem);
-    margin: 0;
-}
-
 @media (max-width: 968px) {
-    .text{
-        padding-bottom: 10%;
-        width: 100%;
-    }
-    #contact-form{
-        width: 100%;
-    }
-    .form-section{
-        flex-direction: column;
-        padding: calc(10% + 10px) 10%;
+    .content-panel{
+        border-radius: 35px 35px 55px 55px;
     }
 }
 @media (min-width: 968px) {
-    .text{
-        width: 50%;
-        padding-right: 60px;
-    }
-    #contact-form{
-        width: 50%;
-    }
-    .form-section{
-        flex-direction: row;
-        align-items: center;
-        padding: calc(60px + 10px) 60px;
-        max-width: 648px;
+    .content-panel{
+        border-radius: 35px 35px 55px 35px;
     }
 }
